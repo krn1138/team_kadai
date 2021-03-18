@@ -1,0 +1,2 @@
+class LeaderChangeMailer < ApplicationMailer
+end

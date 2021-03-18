@@ -47,14 +47,6 @@ class TeamsController < ApplicationController
     @team = current_user.keep_team_id ? Team.find(current_user.keep_team_id) : current_user.teams.first
   end
 
-  def leader_change
-    @team = Team.find(Assign.find(params[:id]).team_id)
-    if @team.update(owner_id: Assign.find(params[:id]).user_id)
-      LeaderChangeMailer.contact_mail(@team).deliver
-      redirect_to team_path(@team.id), notice: "権限移動しました"
-    end
-  end
-
   private
 
   def set_team
