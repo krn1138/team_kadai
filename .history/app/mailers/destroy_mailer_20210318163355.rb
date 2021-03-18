@@ -1,0 +1,2 @@
+class DestroyMailer < ApplicationMailer
+end
